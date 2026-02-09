@@ -1,0 +1,91 @@
+:root {
+    /* --- 직접 수정 가능한 설정들 --- */
+    --top-title-color: #000000;    /* 제목 문구 색상 */
+    --top-title-size: 1.6rem;      /* 제목 문구 크기 */
+    --btn-text-color: #000000;     /* 버튼 글자 색상 */
+    --btn-text-size: 1.1rem;       /* 버튼 글자 크기 */
+    --footer-text-size: 1.0rem;    /* 하단 문의사항 크기 */  
+    --footer-pos-top: 05px;        /* 하단 문구 위쪽 여백 */
+}
+
+body {
+    margin: 0; padding: 0;
+    background-color: #ADDF31; /* 연두색 배경 */
+    font-family: 'Malgun Gothic', sans-serif;
+}
+
+/* 전체 화면 배치 설정 */
+.main-container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px; 
+    gap: 12px !important;   /* 버튼들 사이 간격 */
+    padding-top: 75px;      /* 맨 위 여백 : 당초 25에서 50으로 수정*/
+}
+
+/* 제목 영역 (이미지+글자) */
+.title-area { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 5px !important;    
+    margin-bottom: 0px !important; 
+}
+
+.title-icon { 
+    width: 45px;         /* 이미지 크기 (원하시는 대로 50~70 사이로 조절해 보세요) */
+    height: auto;        /* 높이는 자동으로 맞춤 */
+    margin-right: 5px;  /* 이미지와 "날마다..." 글자 사이의 간격 */
+    vertical-align: middle; /* 이미지와 글자의 높낮이를 가운데로 정렬 */ }
+
+.top-title {
+    color: var(--top-title-color);
+    font-size: var(--top-title-size);
+    font-weight: bold; 
+    margin: 0;
+}
+
+/* 빨간색 실시간 시계 디자인 - 공백을 극한으로 최적화 */
+.date-time-display {
+    font-size: 1.15rem;      
+    font-weight: bold;
+    color: #ff0000;         
+    /* margin: 위(제목과 거의 밀착) 오 아래(기존 4px에서 2px로 축소) 왼 */
+    margin: -5px 0 2px 0;    
+    text-align: center;
+    width: 100%;
+    line-height: 1.0;       /* 글자 위아래 자체 공간 제거 */
+}
+
+/* 버튼 크기 및 모양 */
+.button-wrapper { width: 70%; }
+
+.action-button {
+    width: 100%; 
+    padding: 10px !important; 
+    background-color: #00A2E8; 
+    color: var(--btn-text-color);
+    font-size: var(--btn-text-size);
+    font-weight: bold;
+    border: 2px solid #000; 
+    border-radius: 5px;
+    box-shadow: 1.5px 1.5px 0px rgba(0,0,0,0.8);
+    cursor: pointer;
+}
+
+/* 버튼 눌렀을 때 효과 */
+.action-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: none;
+}
+
+/* 하단 문의사항 정렬 */
+.footer-text {
+    width: 70%;
+    margin: var(--footer-pos-top) auto 0;
+    text-align: right;     
+    font-weight: bold;
+    font-size: var(--footer-text-size);
+    color: #333;
+}
