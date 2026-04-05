@@ -14,7 +14,7 @@
         }
         .main-container { width: 85%; max-width: 320px; display: flex; flex-direction: column; align-items: center; }
 
-        /* [요청] 로고 크기 120% 확대 */
+        /* [요구사항] 로고 크기 약 120% 확대 적용 */
         .title-area { 
             display: flex; flex-direction: row; align-items: center; justify-content: center; 
             margin-bottom: 18px; width: 100%; cursor: pointer; 
@@ -24,19 +24,21 @@
 
         .date-time-display { width: 100%; font-size: 22px; font-weight: bold; color: #ff0000; margin: 0 0 12px 0; text-align: center; }
         .button-wrapper { width: 100%; margin-bottom: 12px; }
+        
+        /* 버튼 디자인 */
         .action-button { 
             width: 100%; height: 65px; background-color: #00A2E8; color: #000000; 
             font-size: 22px; font-weight: bold; border: 2px solid #000; border-radius: 12px; 
             box-shadow: 3px 3px 0px rgba(0,0,0,1); cursor: pointer;
         }
 
-        /* [요청] ID/비번 입력창 스타일 */
+        /* [요구사항] ID/비번 통합 입력창(모달) 스타일 */
         #login-modal {
             display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
             background: white; padding: 20px; border: 3px solid black; border-radius: 15px; z-index: 1000; width: 80%;
         }
         #login-modal input { width: 90%; margin-bottom: 10px; padding: 10px; font-size: 18px; border: 1px solid #ccc; }
-        #login-modal button { width: 100%; padding: 10px; background: #00A2E8; font-weight: bold; font-size: 18px; }
+        #login-modal button { width: 100%; padding: 10px; background: #00A2E8; font-weight: bold; font-size: 18px; color: black; border: 1px solid black; }
 
         .footer-area { width: 100%; display: flex; justify-content: flex-end; margin-top: 5px; }
         .footer-text { font-weight: bold; font-size: 18px; color: #333; }
@@ -56,7 +58,6 @@
     <div class="button-wrapper"><button class="action-button" onclick="silentLogoutAndSignup()">경성제약 회원가입</button></div>
     <div class="button-wrapper"><button class="action-button" onclick="location.href='https://www.kyungsung365.com/shop/'">쇼핑몰 / 주문</button></div>
     <div class="button-wrapper"><button class="action-button" onclick="goLink('https://www.kyungsung365.com/myoffice/member/memberVote.asp')">추천 회원정보</button></div>
-    
     <div class="button-wrapper"><button class="action-button" onclick="location.href='https://youtu.be/hdLtZwNcQJs'">경성제약 유튜브</button></div>
     <div class="button-wrapper"><button class="action-button" onclick="location.href='https://blog.naver.com/100seog/224178002933'">경성제약 장영실상</button></div>
     <div class="button-wrapper"><button class="action-button" onclick="location.href='https://search.naver.com/search.naver?where=news&query=%EC%9E%A5+%EA%B1%B4%EA%B0%95+%EC%9C%A0%EC%82%B0%EA%B7%A0+%ED%9A%A8%EB%8A%A5'">장 건강 전문 뉴스</button></div>
@@ -86,7 +87,6 @@
     }
     setInterval(updateTime, 1000); updateTime();
 
-    /* [해결] 로고 클릭 시 ID/PW 통합 입력창 */
     function showLoginModal() { document.getElementById('login-modal').style.display = 'block'; }
     function closeModal() { document.getElementById('login-modal').style.display = 'none'; }
 
@@ -95,7 +95,7 @@
         const pw = document.getElementById('ksj_pw_input').value;
         if(id) localStorage.setItem('ksj_id', id);
         if(pw) localStorage.setItem('ksj_pw', pw);
-        alert("정보가 안전하게 저장되었습니다.");
+        alert("정보가 저장되었습니다.");
         closeModal();
     }
 
@@ -112,7 +112,7 @@
         iframe.style.display = "none";
         document.body.appendChild(iframe);
         iframe.src = logoutUrl;
-        setTimeout(() => { location.href = signupUrl; }, 150);
+        setTimeout(() => { location.href = signupUrl; }, 200);
     }
 </script>
 </body>
